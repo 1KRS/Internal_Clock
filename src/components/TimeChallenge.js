@@ -13,7 +13,7 @@ const TimeChallenge = ({ title, targetTime }) => {
     timer.current = setTimeout(() => {
       setTimerExpired(true);
       setTimerStarted(false);
-      dialog.current.showModal();
+      dialog.current.makeModalAppear();
     }, targetTime * 1000);
   };
 
