@@ -2,25 +2,22 @@ import { useRef, useState } from 'react';
 import ResultModal from './ResultModal.js';
 
 const TimeChallenge = ({ title, targetTime }) => {
- 
-  const [timeRemaining, setTimeRemaining] = useState(targetTime * 1000)
+  const [remainingTime, setRemainingTime] = useState(targetTime * 1000);
 
   const timer = useRef();
   const dialog = useRef();
 
-  const timerActive = timeRemaining < targetTime * 1000 && timeRemaining > 0
+  const timerActive = remainingTime < targetTime * 1000 && remainingTime > 0;
 
-  if (timeRemaining <= 0) {
+  if (remainingTime <= 0) {
     clearInterval(timer.current);
-    setTimeRemaining(targetTime * 1000)
     dialog.current.makeModalAppear();
   }
 
   const handleStart = () => {
     timer.current = setInterval(() => {
-     setTimeRemaining(prevTimeRemaining => prevTimeRemaining - 100);
-     
-    }, 100);
+      setRemainingTime((prevRemainingTime) => prevRemainingTime - 10);
+    }, 10);
   };
 
   const handleStop = () => {
@@ -28,9 +25,18 @@ const TimeChallenge = ({ title, targetTime }) => {
     dialog.current.makeModalAppear();
   };
 
+  const resetTimer = () => {
+    setRemainingTime(targetTime * 1000);
+  };
+
   return (
     <>
-      <ResultModal ref={dialog} targetTime={targetTime} result='lost'/>
+      <ResultModal
+        ref={dialog}
+        targetTime={targetTime}
+        remainingTime={remainingTime}
+        resetTimer={resetTimer}
+      />
       <section className="challenge">
         <h2>{title}</h2>
         <p className="challenge-time">
