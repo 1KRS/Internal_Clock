@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Internal_Clock/static/css/main.19e221c4.css",
+    "main.js": "/Internal_Clock/static/js/main.f7953e37.js",
+    "index.html": "/Internal_Clock/index.html",
+    "main.19e221c4.css.map": "/Internal_Clock/static/css/main.19e221c4.css.map",
+    "main.f7953e37.js.map": "/Internal_Clock/static/js/main.f7953e37.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.19e221c4.css",
+    "static/js/main.f7953e37.js"
+  ]
+}
