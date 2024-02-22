@@ -16,8 +16,8 @@ const TimeChallenge = ({ title, targetTime }) => {
 
   const handleStart = () => {
     timer.current = setInterval(() => {
-      setRemainingTime((prevRemainingTime) => prevRemainingTime - 10);
-    }, 10);
+      setRemainingTime((prevRemainingTime) => prevRemainingTime - 100);
+    }, 100);
   };
 
   const handleStop = () => {
